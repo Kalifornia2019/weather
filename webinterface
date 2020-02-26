@@ -1,0 +1,60 @@
+=head1 NAME
+
+  Weather
+
+=cut
+
+use strict;
+use warnings FATAL => 'all';
+use Crm::db::Crm;
+use Abills::Base qw(days_in_month mk_unique_value in_array);
+use Abills::Misc;
+use Admins;
+use Employees;
+use Abills::Sender::Core;
+use Crm::Leads;
+require Abills::Defs;
+our ($db, $admin, %conf, %lang, $html, @MONTHES, %permissions);
+
+#our Weather $weather = Weather->new($db, $admin, \%conf);
+
+our @PRIORITY = ($lang{LOW}, $lang{NORMAL}, $lang{HIGH});
+
+#**********************************************************
+=head2 weather_today_actions()
+
+  Arguments:
+     -
+
+  Returns:
+
+=cut
+#**********************************************************
+sub weather_today_actions {
+    $html->tpl_show(_include('weather', 'Weather'));
+
+    #my %request_params  = ();
+    #my url = 'https://api.darksky.net/forecast/846638b099736882dbc2023224909fe4/37.8267,-122.4233';
+
+}
+#**********************************************************
+=head2 weather_start_page($attr)
+
+  Arguments:
+
+
+  Returns:
+
+=cut
+#**********************************************************
+sub weather_start_page {
+
+    my %START_PAGE_F = (
+        'weather_today_actions'       => "$lang{TODAY} $lang{ACTION}",
+    );
+
+    return \%START_PAGE_F;
+}
+
+
+1;

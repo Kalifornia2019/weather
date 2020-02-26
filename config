@@ -1,0 +1,6 @@
+%FUNCTIONS_LIST = (
+  "16:13::cablecat_link_info:AJAX"                                   => 5,
+
+);
+
+1;
